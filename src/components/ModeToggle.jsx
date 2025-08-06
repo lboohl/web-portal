@@ -9,9 +9,10 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 export default function ModeToggle() {
   const [dark, setDark] = useState(() => {
     if (typeof window !== "undefined") {
-      return localStorage.theme === "dark";
+      // Default to dark mode if no theme is set
+      return localStorage.theme === "dark" || !("theme" in localStorage);
     }
-    return false;
+    return true; // Default to dark on server
   });
 
   useEffect(() => {
