@@ -14,7 +14,7 @@ function App() {
       <ModeToggle />
       <header className="mb-12 text-center z-10">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white drop-shadow-xl mb-2">
-          IT & Asset Portal
+          NETL Web Portal
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-300">
           Quick access to essential IT services for your organization.
