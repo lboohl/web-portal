@@ -1,0 +1,40 @@
+// src/components/ModeToggle.jsx
+import { useEffect, useState } from "react";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
+
+/**
+ * Light/Dark mode toggle using Tailwind's class strategy.
+ * Remembers user preference in localStorage.
+ */
+export default function ModeToggle() {
+  const [dark, setDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.theme === "dark";
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    if (dark) {
+      document.documentElement.classList.add("dark");
+      localStorage.theme = "dark";
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = "light";
+    }
+  }, [dark]);
+
+  return (
+    <button
+      className="fixed top-6 right-6 bg-white/60 dark:bg-black/40 rounded-full shadow-lg p-2 transition-colors backdrop-blur-md z-20"
+      onClick={() => setDark((d) => !d)}
+      aria-label="Toggle dark mode"
+    >
+      {dark ? (
+        <SunIcon className="h-6 w-6 text-yellow-400" />
+      ) : (
+        <MoonIcon className="h-6 w-6 text-gray-700" />
+      )}
+    </button>
+  );
+}
