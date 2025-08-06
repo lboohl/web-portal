@@ -8,9 +8,9 @@ import { motion } from "framer-motion";
  */
 const links = [
   {
-    label: "Asset Request",
+    label: "Asset Request (Coming Soon)",
     desc: "Request new hardware, software, or office equipment.",
-    url: "https://forms.office.com/asset-request", // Replace with real link
+    url: "#", // Replace with real link
     icon: DocumentTextIcon,
     color: "from-emerald-400 to-teal-500"
   },
