@@ -15,7 +15,7 @@ const links = [
     color: "from-emerald-400 to-teal-500"
   },
   {
-    label: "IT Concern",
+    label: "IT Helpdesk",
     desc: "Report issues or concerns to IT Support.",
     url: "https://forms.cloud.microsoft/e/jRhMJNCCfQ", // Replace with real link
     icon: WrenchScrewdriverIcon,
@@ -28,40 +28,47 @@ export default function BentoBox() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto p-8">
       {links.map((item, idx) => {
         const Icon = item.icon;
+        const isLink = item.url !== "#";
+        const MotionComponent = isLink ? motion.a : motion.div;
+        const componentProps = {
+          key: item.label,
+          initial: { opacity: 0, y: 20 },
+          animate: { opacity: 1, y: 0 },
+          whileHover: { scale: 1.05 },
+          transition: { delay: idx * 0.0, duration: 0.15},
+          className: `
+            relative group rounded-2xl p-8
+            bg-white/40 dark:bg-black/40
+            backdrop-blur-lg shadow-2xl
+            border border-white/20 dark:border-black/30
+            overflow-hidden
+            ${!isLink ? "cursor-default" : ""}
+          `,
+          style: {
+            // Add a custom mesh/gradient border
+          },
+          ...(isLink && {
+            href: item.url,
+            target: "_blank",
+            rel: "noopener noreferrer",
+          }),
+        };
+
         return (
-          <motion.a
-            key={item.label}
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.1 }}
-            className={`
-              relative group rounded-2xl p-8
-              bg-white/40 dark:bg-black/40
-              backdrop-blur-lg shadow-2xl
-              border border-white/20 dark:border-black/30
-              hover:scale-105 transition-all duration-300
-              overflow-hidden
-            `}
-            style={{
-              // Add a custom mesh/gradient border
-            }}
-          >
+          <MotionComponent {...componentProps}>
             {/* Mesh colored animated border */}
             <div className={`
               absolute -inset-1 rounded-3xl z-0
               bg-gradient-to-br ${item.color} opacity-40 blur-2xl
-              group-hover:opacity-70 transition-opacity duration-300
+              group-hover:opacity-70 transition-opacity duration-1000
             `}></div>
             {/* Card Content */}
             <div className="relative z-10 flex flex-col gap-4">
-              <Icon className="h-10 w-10 text-black dark:text-white opacity-70" />
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{item.label}</h2>
-              <p className="text-gray-700 dark:text-gray-200">{item.desc}</p>
+              <Icon className="h-10 w-10 text-black dark:text-white opacity-70 transition-colors duration-1000" />
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white transition-colors duration-1000 font-inter">{item.label}</h2>
+              <p className="text-gray-700 dark:text-gray-200 transition-colors duration-1000 font-inter">{item.desc}</p>
             </div>
-          </motion.a>
+          </MotionComponent>
         );
       })}
     </div>

@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+      },
       // Mesh gradients and glass effect utilities can go here
     },
   },

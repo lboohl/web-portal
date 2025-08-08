@@ -42,13 +42,13 @@ export default function AnimatedBackground() {
           </radialGradient>
         </defs>
         {/* Light Mode Circles */}
-        <g className="dark:hidden">
+        <g className="transition-opacity duration-500 ease-in-out dark:opacity-0">
           <motion.circle
             cx={200}
             cy={200}
             r={250}
             fill="url(#mesh1-light)"
-            animate={{ cx: [200, 400, 200], cy: [200, 350, 200] }}
+            animate={{ cx: [100, 500, 100], cy: [100, 450, 100] }}
             transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
           />
           <motion.circle
@@ -56,7 +56,7 @@ export default function AnimatedBackground() {
             cy={400}
             r={220}
             fill="url(#mesh2-light)"
-            animate={{ cx: [600, 400, 600], cy: [400, 550, 400] }}
+            animate={{ cx: [700, 300, 700], cy: [300, 650, 300] }}
             transition={{ repeat: Infinity, duration: 15, ease: "easeInOut", delay: 2 }}
           />
           <motion.circle
@@ -64,20 +64,20 @@ export default function AnimatedBackground() {
             cy={500}
             r={200}
             fill="url(#mesh3-light)"
-            animate={{ cx: [400, 550, 400], cy: [500, 350, 500] }}
+            animate={{ cx: [300, 650, 300], cy: [600, 250, 600] }}
             transition={{ repeat: Infinity, duration: 18, ease: "easeInOut", delay: 4 }}
           />
         </g>
         {/* Dark Mode Circles */}
-        <g className="hidden dark:block">
+        <g className="transition-opacity duration-500 ease-in-out opacity-0 dark:opacity-100">
           <motion.circle
             cx={200}
             cy={200}
             r={250}
             fill="url(#mesh1-dark)"
           animate={{
-            cx: [200, 400, 200],
-            cy: [200, 350, 200],
+            cx: [100, 500, 100],
+            cy: [100, 450, 100],
           }}
           transition={{
             repeat: Infinity,
@@ -88,11 +88,11 @@ export default function AnimatedBackground() {
         <motion.circle
           cx={600}
           cy={400}
-          r={220}
-          fill="url(#mesh2-dark)"
+            r={220}
+            fill="url(#mesh2-dark)"
           animate={{
-            cx: [600, 400, 600],
-            cy: [400, 550, 400],
+            cx: [700, 300, 700],
+            cy: [300, 650, 300],
           }}
           transition={{
             repeat: Infinity,
@@ -104,11 +104,11 @@ export default function AnimatedBackground() {
         <motion.circle
           cx={400}
           cy={500}
-          r={200}
-          fill="url(#mesh3-dark)"
+            r={200}
+            fill="url(#mesh3-dark)"
           animate={{
-            cx: [400, 550, 400],
-            cy: [500, 350, 500],
+            cx: [300, 650, 300],
+            cy: [600, 250, 600],
           }}
           transition={{
             repeat: Infinity,

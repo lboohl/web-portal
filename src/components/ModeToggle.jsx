@@ -32,9 +32,9 @@ export default function ModeToggle() {
       aria-label="Toggle dark mode"
     >
       {dark ? (
-        <SunIcon className="h-6 w-6 text-yellow-400" />
+        <SunIcon className="h-6 w-6 text-yellow-400 transition-colors duration-300" />
       ) : (
-        <MoonIcon className="h-6 w-6 text-gray-700" />
+        <MoonIcon className="h-6 w-6 text-gray-700 transition-colors duration-300" />
       )}
     </button>
   );
