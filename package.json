@@ -2,6 +2,7 @@
   "name": "portal-bento",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://lboohl.github.io/web-portal",
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "framer-motion": "^10.18.0",
