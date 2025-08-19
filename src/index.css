@@ -5,6 +5,6 @@ html, body, #root {
   min-height: 100%;
 }
 body {
-  @apply bg-gray-100 dark:bg-[#111827];
+  @apply bg-gray-100 dark:bg-[#111827] font-inter;
   transition: background-color 1s ease;
 }

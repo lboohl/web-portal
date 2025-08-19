@@ -15,6 +15,13 @@ const links = [
     color: "from-emerald-400 to-teal-500"
   },
   {
+    label: "Asset Inventory",
+    desc: "View and manage assets.",
+    url: "/assets",
+    icon: DocumentTextIcon,
+    color: "from-sky-500 to-cyan-600"
+  },
+  {
     label: "IT Helpdesk",
     desc: "Report issues or concerns to IT Support.",
     url: "https://forms.cloud.microsoft/e/jRhMJNCCfQ", // Replace with real link
